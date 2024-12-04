@@ -66,7 +66,7 @@ After cloning the repo:
 5. **Create Superuser:**
 
     ```shell
-    python manage.py createsuperuser
+    python manage.py --settings=nimblestore.settings.dev createsuperuser
     ```
 
 6. **Run Server:**
