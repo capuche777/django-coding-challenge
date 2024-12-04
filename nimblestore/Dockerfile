@@ -6,10 +6,6 @@ WORKDIR /code
 # Install bash
 RUN apt-get update && apt-get install -y bash
 
-# Copy and install dependencies
-COPY requirements.txt /code/
-RUN pip install -r requirements.txt
-
 # Copy the application code
 COPY . /code/
 

@@ -3,6 +3,7 @@ services:
     container_name: nimblestore_dev
     environment:
       - PYTHONBUFFERED=1
+      - DJANGO_SETTINGS_MODULE=nimblestore.settings.dev
     build:
       context: ./nimblestore
       dockerfile: Dockerfile

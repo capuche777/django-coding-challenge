@@ -72,8 +72,9 @@ After cloning the repo:
 6. **Run Server:**
 
     ```shell
-    python manage.py runserver
+    python manage.py runserver --settings=nimblestore.settings.dev
     ```
 
 ### Notes:
 1. DB is included just for testings purpose.
+2. production environment is not introduced in settings because this will not be deployed to production.
