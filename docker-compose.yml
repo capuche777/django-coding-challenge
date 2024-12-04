@@ -1,0 +1,13 @@
+services:
+  nimblestore:
+    container_name: nimblestore_dev
+    environment:
+      - PYTHONBUFFERED=1
+    build:
+      context: ./nimblestore
+      dockerfile: Dockerfile
+    volumes:
+      - ./nimblestore:/code/
+    entrypoint: [ "sh", "/code/entrypoint.sh" ]
+    ports:
+      - '8000:8000'

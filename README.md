@@ -1,65 +1,79 @@
+![Static Badge](https://img.shields.io/badge/-3.11.9-000?style=flat&logo=python&logoColor=blue&label=Python&labelColor=000&color=blue)
+![Static Badge](https://img.shields.io/badge/-5.0-000?style=flat&logo=django&logoColor=blue&label=Django&labelColor=000&color=blue)
+
 # Django Coding Challenge
 
 ## Setup
 
-Clone this repository using GIT. I recommend you use Github Desktop or VS Code (see point 1 in Development)
+Clone this repository using GIT.
 
-To run this project you need to install any recent version of Python. Preferably Python 3.9+ After that you are advised to create a virtual environment so that your dependencies are contained within the workspace. **On Windows, make sure to add Python to your PATH, you may need to logout or reboot to run python**
+## Using Docker (Recommended)
 
-Once you have Python installed and working, you can install the project dependencies by running `pip install -r requirements.txt`. This will install everything for you, then you can run migrations with `python manage.py migrate` (make sure to run this command within the nimblestore directory). If successful you should see a new file called `db.sqlite3` in your work directory.
+You will need Docker installed on your computer. After cloning the repo, simply run:
 
-Lastly you should be able to run the server with `python manage.py runserver` which will let you see a very basic webpage in https://127.0.0.1:8000 (Open this link in your browser), this page will help you test your work, I recommend you open the web inspector and switch to the network tab to see what is happening. If you want you can find the source for this page in the `nimblestore/checkout/templates/index.html` file. You do NOT need to edit anything on it.
-
-## Development
-
-Here are some general guides and also some tips:
-
-1. Install VS Code (optional) [here](https://code.visualstudio.com/)
-2. Install recommended extensions (Python, SonarLint)
-3. Use Google as much as you need to, find official sources and documentations, examples and tutorials are good sources.
-4. You CAN use AI, in fact I encourage you to do so.
-
-Once you start creating models, you will need to create and run migrations, the commands you'll need are:
-
-```bash
-python manage.py makemigrations
-python manage.py migrate
+```shell
+docker compose up -d
 ```
 
-## Documentation
+For older versions, use:
 
-- **Docstrings**: Please provide docstrings for your functions and classes using the [Google style guide](https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html). This helps others understand the purpose and usage of your code.
-- **README**: Update the README file to include instructions on how to set up and run the project, as well as any other relevant information. This ensures that anyone who uses your project can easily get started.
+```shell
+docker-compose up -d
+```
 
-## Unit Tests
+To run tests manually:
 
-- **Unit Tests with pytest**: Write unit tests for your code using `pytest`. Ensure you cover different scenarios, including edge cases.
-  To run your tests, use the command:
-  ```bash
-  pytest
-  ```
-  Create a `tests` directory in your project and add your test files there. Follow the convention of naming your test files starting with `test_`.
+```shell
+docker exec -it nimblestore_dev pytest
+```
 
-## Pre-commit Hooks
+## Using Python Environment
 
-- **Pre-commit**: Install `pre-commit` to ensure code quality before commits. Pre-commit hooks can automatically format your code and run tests before each commit. `pre-commit` should have been installed by the previous commmands, yet you still have to run the following:
-  Initialize the pre-commit hooks with:
-  ```bash
-  pre-commit install
-  ```
-  Now, every time you make a commit, `pre-commit` will run the defined hooks to ensure code quality.
+After cloning the repo:
 
-## Problem Statement
+1. **Create Environment:**
 
-Your company has a Django application that stores product information. Each product has a name, price, and quantity available. Your task is to create three API endpoints:
+    ```shell
+    python -m venv venv
+    ```
 
-1. `GET /api/products/`: This endpoint should return a list of all products, with each product's name, price, and quantity available.
+2. **Activate Environment:**
 
-2. `POST /api/order/`: This endpoint should accept a list of products and quantities, calculate the total cost of the order, and return it. If a product doesn't exist or there isn't enough quantity available, it should return an appropriate error message.
+    - On macOS/Linux:
+    
+        ```shell
+        source venv/bin/activate
+        ```
 
-3. `PUT /api/products/<id>/` or `PATCH /api/products/<id>/`: These endpoints should allow for editing the details of a product. The `PUT` method should update all fields of the product, while the `PATCH` method should allow partial updates.
+    - On Windows:
+    
+        ```shell
+        .\venv\Scripts\activate
+        ```
 
-You can search globally for `TODO` to find the files you must edit to complete this assignment.
+3. **Install Requirements:**
 
-Good Luck,
-Juan Mora
+    ```shell
+    pip install -r ./nimblestore/requirements.txt
+    ```
+   
+4. **Navigate to Project Folder:**
+
+    ```shell
+    cd ./nimblestore/
+    ```
+   
+5. **Create Superuser:**
+
+    ```shell
+    python manage.py createsuperuser
+    ```
+
+6. **Run Server:**
+
+    ```shell
+    python manage.py runserver
+    ```
+
+### Notes:
+1. DB is included just for testings purpose.
