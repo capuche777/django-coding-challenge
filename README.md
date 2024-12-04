@@ -75,6 +75,12 @@ After cloning the repo:
     python manage.py runserver --settings=nimblestore.settings.dev
     ```
 
+To run tests manually from root folder:
+
+```shell
+pytest ./nimblestore/
+```
+
 ### Notes:
 1. DB is included just for testings purpose.
 2. production environment is not introduced in settings because this will not be deployed to production.
