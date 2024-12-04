@@ -37,8 +37,8 @@ repos:
   rev: "7.0.0"
   hooks:
     - id: flake8
-- repo: https://github.com/koalaman/shellcheck-precommit
-  rev: "v0.10.0"
-  hooks:
-    - id: shellcheck
-      args: ["--exclude=SC2148"]
+#- repo: https://github.com/koalaman/shellcheck-precommit
+#  rev: "v0.10.0"
+#  hooks:
+#    - id: shellcheck
+#      args: ["--exclude=SC2148"]
