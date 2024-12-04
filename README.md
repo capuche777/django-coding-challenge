@@ -21,6 +21,11 @@ For older versions, use:
 docker-compose up -d
 ```
 
+Create superuser:
+```shell
+docker exec -it nimblestore_dev python manage.py createsuperuser
+```
+
 To run tests manually:
 
 ```shell
@@ -84,3 +89,5 @@ pytest ./nimblestore/
 ### Notes:
 1. DB is included just for testings purpose.
 2. production environment is not introduced in settings because this will not be deployed to production.
+3. Username and Password is "admin"
+4. API Docs has been included in **http://localhost:8000/api/docs**, here you can test all the endpoints including put and patch for products update
